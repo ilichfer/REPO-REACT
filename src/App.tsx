@@ -41,7 +41,7 @@ function App() {
     setTareas(tareas);
   }
 
-  const addId = (id: number) => {
+  const onDelete = (id: number) => {
     console.log("id seleccionado",id);
  
   }
@@ -79,6 +79,7 @@ function App() {
             {tareas.tareas.map((tarea : TareaAgregada)  => {
               return(<TodoList
                 tarea={tarea}
+                onDelete={onDelete}
                 />
                 )
             })}
