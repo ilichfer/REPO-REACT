@@ -3,9 +3,6 @@ import { useState } from "react";
 interface Props {
   admensaje: (texto: string) => void
 }
-interface idselect {
-  addId: (id: number) => void
-}
 
 function Input({ admensaje }: Props) {
     const [texto, setTexto] = useState('');

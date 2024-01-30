@@ -1,26 +1,22 @@
-interface TareaAgregada {
+import { Tarea } from "../../types/Tareas"
 
-  tarea: 
-  {
-    title: string,
-    id: number,
-    complete: boolean
-  }
-}
 
-interface idSeleccionado {
+interface props {
+  tarea:Tarea
   onDelete: (id: number) => void
+  onSelectCheck: (complete: Tarea) => void
 }
 
-function TodoList({tarea}:TareaAgregada,{onDelete}:idSeleccionado) {
+function TodoList({tarea,onDelete,onSelectCheck}:props) {
 
     return (
       <tr >
         <td><input type="checkbox" checked={tarea.complete}
+        onChange={() => onSelectCheck(tarea)}
         /></td>
       
         <td>{tarea.title}</td>
-        <td><button onClick={() => onDelete(1)} className=''>X</button></td>
+        <td><button onClick={() => onDelete(tarea.id)} className=''>X</button></td>
       </tr>      
     )
   }
